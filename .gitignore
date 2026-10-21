@@ -1,0 +1,10 @@
+node_modules/
+dist/
+qa/
+manual/
+public/manual/
+test-results/
+*.tsbuildinfo
+.env*
+*.zip
+*.pdf

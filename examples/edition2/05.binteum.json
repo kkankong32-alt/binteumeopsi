@@ -1,0 +1,157 @@
+{
+  "format": "binteumeopsi-project",
+  "schemaVersion": 1,
+  "id": "binteumeopsi-example-5",
+  "title": "작은 새의 여행",
+  "created": "2026-10-20T12:11:52.768Z",
+  "modified": "2026-10-20T12:11:52.768Z",
+  "kind": "escher",
+  "mode": "studio",
+  "vertices": [
+    [
+      0,
+      0
+    ],
+    [
+      35,
+      -20
+    ],
+    [
+      78,
+      18
+    ],
+    [
+      120,
+      0
+    ],
+    [
+      138,
+      38
+    ],
+    [
+      106,
+      82
+    ],
+    [
+      120,
+      120
+    ],
+    [
+      78,
+      138
+    ],
+    [
+      35,
+      100
+    ],
+    [
+      0,
+      120
+    ],
+    [
+      -14,
+      82
+    ],
+    [
+      18,
+      38
+    ]
+  ],
+  "locked": false,
+  "escher": {
+    "curved": false,
+    "top": [
+      [
+        35,
+        -20
+      ],
+      [
+        78,
+        18
+      ]
+    ],
+    "left": [
+      [
+        18,
+        38
+      ],
+      [
+        -14,
+        82
+      ]
+    ]
+  },
+  "decorations": [
+    {
+      "id": "eye",
+      "type": "eye",
+      "x": 80,
+      "y": 35,
+      "size": 4.5,
+      "rotation": -10,
+      "color": "#243C36"
+    },
+    {
+      "id": "wing",
+      "type": "wing",
+      "x": 48,
+      "y": 72,
+      "size": 23,
+      "rotation": -24,
+      "color": "#CCA276"
+    }
+  ],
+  "repeat": true,
+  "pieces": [],
+  "style": {
+    "palette": [
+      "#4E624E",
+      "#98A385",
+      "#CCA276",
+      "#EEE4D1"
+    ],
+    "background": "#f3e9d8",
+    "decoration": "solid",
+    "stroke": "#F5F1E7",
+    "line": 0.7,
+    "join": "round",
+    "grout": 0.7,
+    "period": 4,
+    "scale": 0.85,
+    "rotation": 0,
+    "colors": {},
+    "typeColors": {},
+    "recent": []
+  },
+  "camera": {
+    "x": 60,
+    "y": 60,
+    "zoom": 1
+  },
+  "artboard": {
+    "width": 1920,
+    "height": 1080
+  },
+  "showroom": {
+    "scene": "wall",
+    "material": "wood",
+    "scale": 1,
+    "rotation": 0,
+    "x": 0,
+    "y": 0,
+    "camera": 0,
+    "lighting": 1,
+    "quality": "auto"
+  },
+  "puzzle": {
+    "catalog": "v2",
+    "level": 0,
+    "pieces": [],
+    "completed": [],
+    "custom": null
+  },
+  "layers": [
+    "pattern",
+    "decoration"
+  ]
+}

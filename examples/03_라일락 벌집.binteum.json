@@ -1,0 +1,113 @@
+{
+  "format": "binteumeopsi-project",
+  "schemaVersion": 1,
+  "id": "binteumeopsi-example-3",
+  "title": "라일락 벌집",
+  "created": "2026-10-20T10:21:36.593Z",
+  "modified": "2026-10-20T10:21:36.593Z",
+  "kind": "hex",
+  "mode": "studio",
+  "vertices": [
+    [
+      4.531193156845207e-15,
+      -74
+    ],
+    [
+      64.08587988004847,
+      -36.99999999999999
+    ],
+    [
+      64.08587988004847,
+      36.99999999999999
+    ],
+    [
+      4.531193156845207e-15,
+      74
+    ],
+    [
+      -64.08587988004847,
+      36.99999999999999
+    ],
+    [
+      -64.08587988004845,
+      -37.00000000000001
+    ]
+  ],
+  "locked": true,
+  "escher": {
+    "curved": false,
+    "top": [
+      [
+        40,
+        -16
+      ],
+      [
+        80,
+        16
+      ]
+    ],
+    "left": [
+      [
+        16,
+        40
+      ],
+      [
+        -16,
+        80
+      ]
+    ]
+  },
+  "decorations": [],
+  "repeat": true,
+  "pieces": [],
+  "style": {
+    "palette": [
+      "#173D64",
+      "#65A4BB",
+      "#E7BF66",
+      "#F0E5CC"
+    ],
+    "background": "#f3e9d8",
+    "decoration": "solid",
+    "stroke": "#ffffff",
+    "line": 0.7,
+    "join": "round",
+    "grout": 1,
+    "period": 4,
+    "scale": 1,
+    "rotation": 0,
+    "colors": {},
+    "typeColors": {},
+    "recent": []
+  },
+  "camera": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "artboard": {
+    "width": 1920,
+    "height": 1080
+  },
+  "showroom": {
+    "scene": "facade",
+    "material": "gloss",
+    "scale": 1,
+    "rotation": 0,
+    "x": 0,
+    "y": 0,
+    "camera": 0,
+    "lighting": 1,
+    "quality": "auto"
+  },
+  "puzzle": {
+    "level": 0,
+    "pieces": [],
+    "completed": [],
+    "custom": null
+  },
+  "layers": [
+    "pattern",
+    "decoration"
+  ]
+}

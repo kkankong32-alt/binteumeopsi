@@ -1,0 +1,121 @@
+{
+  "format": "binteumeopsi-project",
+  "schemaVersion": 1,
+  "id": "binteumeopsi-example-4",
+  "title": "테라코타의 리듬",
+  "created": "2026-10-20T10:21:36.594Z",
+  "modified": "2026-10-20T10:21:36.594Z",
+  "kind": "mixed8",
+  "mode": "studio",
+  "vertices": [
+    [
+      4.531193156845207e-15,
+      -74
+    ],
+    [
+      52.32590180780452,
+      -52.32590180780451
+    ],
+    [
+      74,
+      0
+    ],
+    [
+      52.32590180780452,
+      52.32590180780451
+    ],
+    [
+      4.531193156845207e-15,
+      74
+    ],
+    [
+      -52.32590180780451,
+      52.32590180780452
+    ],
+    [
+      -74,
+      9.062386313690414e-15
+    ],
+    [
+      -52.32590180780453,
+      -52.32590180780451
+    ]
+  ],
+  "locked": true,
+  "escher": {
+    "curved": false,
+    "top": [
+      [
+        40,
+        -16
+      ],
+      [
+        80,
+        16
+      ]
+    ],
+    "left": [
+      [
+        16,
+        40
+      ],
+      [
+        -16,
+        80
+      ]
+    ]
+  },
+  "decorations": [],
+  "repeat": true,
+  "pieces": [],
+  "style": {
+    "palette": [
+      "#8D4638",
+      "#D78D67",
+      "#EBC5A2",
+      "#F5ECE1"
+    ],
+    "background": "#f3e9d8",
+    "decoration": "solid",
+    "stroke": "#ffffff",
+    "line": 0.7,
+    "join": "round",
+    "grout": 1,
+    "period": 4,
+    "scale": 1,
+    "rotation": 0,
+    "colors": {},
+    "typeColors": {},
+    "recent": []
+  },
+  "camera": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "artboard": {
+    "width": 1920,
+    "height": 1080
+  },
+  "showroom": {
+    "scene": "wall",
+    "material": "stone",
+    "scale": 1,
+    "rotation": 0,
+    "x": 0,
+    "y": 0,
+    "camera": 0,
+    "lighting": 1,
+    "quality": "auto"
+  },
+  "puzzle": {
+    "level": 0,
+    "pieces": [],
+    "completed": [],
+    "custom": null
+  },
+  "layers": [
+    "pattern",
+    "decoration"
+  ]
+}

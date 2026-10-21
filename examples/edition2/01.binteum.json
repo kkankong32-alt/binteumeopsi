@@ -1,0 +1,106 @@
+{
+  "format": "binteumeopsi-project",
+  "schemaVersion": 1,
+  "id": "binteumeopsi-example-1",
+  "title": "숲빛의 조각들",
+  "created": "2026-10-20T12:11:52.767Z",
+  "modified": "2026-10-20T12:11:52.768Z",
+  "kind": "quad",
+  "mode": "studio",
+  "vertices": [
+    [
+      -65,
+      -52
+    ],
+    [
+      55,
+      -65
+    ],
+    [
+      78,
+      48
+    ],
+    [
+      -48,
+      68
+    ]
+  ],
+  "locked": false,
+  "escher": {
+    "curved": false,
+    "top": [
+      [
+        40,
+        -16
+      ],
+      [
+        80,
+        16
+      ]
+    ],
+    "left": [
+      [
+        16,
+        40
+      ],
+      [
+        -16,
+        80
+      ]
+    ]
+  },
+  "decorations": [],
+  "repeat": true,
+  "pieces": [],
+  "style": {
+    "palette": [
+      "#224F47",
+      "#80A99C",
+      "#E6B78A",
+      "#F3E9D8"
+    ],
+    "background": "#f3e9d8",
+    "decoration": "solid",
+    "stroke": "#F5F1E7",
+    "line": 0.7,
+    "join": "round",
+    "grout": 0.7,
+    "period": 4,
+    "scale": 1,
+    "rotation": 0,
+    "colors": {},
+    "typeColors": {},
+    "recent": []
+  },
+  "camera": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "artboard": {
+    "width": 1920,
+    "height": 1080
+  },
+  "showroom": {
+    "scene": "wall",
+    "material": "ceramic",
+    "scale": 1,
+    "rotation": 0,
+    "x": 0,
+    "y": 0,
+    "camera": 0,
+    "lighting": 1,
+    "quality": "auto"
+  },
+  "puzzle": {
+    "catalog": "v2",
+    "level": 0,
+    "pieces": [],
+    "completed": [],
+    "custom": null
+  },
+  "layers": [
+    "pattern",
+    "decoration"
+  ]
+}

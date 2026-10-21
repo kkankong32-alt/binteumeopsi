@@ -1,0 +1,114 @@
+{
+  "format": "binteumeopsi-project",
+  "schemaVersion": 1,
+  "id": "binteumeopsi-example-3",
+  "title": "은빛 벌집",
+  "created": "2026-10-20T12:11:52.768Z",
+  "modified": "2026-10-20T12:11:52.768Z",
+  "kind": "hex",
+  "mode": "studio",
+  "vertices": [
+    [
+      4.531193156845207e-15,
+      -74
+    ],
+    [
+      64.08587988004847,
+      -36.99999999999999
+    ],
+    [
+      64.08587988004847,
+      36.99999999999999
+    ],
+    [
+      4.531193156845207e-15,
+      74
+    ],
+    [
+      -64.08587988004847,
+      36.99999999999999
+    ],
+    [
+      -64.08587988004845,
+      -37.00000000000001
+    ]
+  ],
+  "locked": true,
+  "escher": {
+    "curved": false,
+    "top": [
+      [
+        40,
+        -16
+      ],
+      [
+        80,
+        16
+      ]
+    ],
+    "left": [
+      [
+        16,
+        40
+      ],
+      [
+        -16,
+        80
+      ]
+    ]
+  },
+  "decorations": [],
+  "repeat": true,
+  "pieces": [],
+  "style": {
+    "palette": [
+      "#334653",
+      "#82969C",
+      "#C2CBC8",
+      "#EBEAE1"
+    ],
+    "background": "#f3e9d8",
+    "decoration": "line",
+    "stroke": "#49565B",
+    "line": 0.7,
+    "join": "round",
+    "grout": 0.7,
+    "period": 4,
+    "scale": 0.85,
+    "rotation": 0,
+    "colors": {},
+    "typeColors": {},
+    "recent": []
+  },
+  "camera": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "artboard": {
+    "width": 1920,
+    "height": 1080
+  },
+  "showroom": {
+    "scene": "facade",
+    "material": "metal",
+    "scale": 0.8,
+    "rotation": 0,
+    "x": 0,
+    "y": 0,
+    "camera": 0,
+    "lighting": 1,
+    "quality": "auto"
+  },
+  "puzzle": {
+    "catalog": "v2",
+    "level": 0,
+    "pieces": [],
+    "completed": [],
+    "custom": null
+  },
+  "layers": [
+    "pattern",
+    "decoration"
+  ]
+}
