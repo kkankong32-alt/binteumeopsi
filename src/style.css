@@ -2049,3 +2049,43 @@ input[type="range"] {
   stroke: #d88447;
   stroke-width: 4;
 }
+
+/* Keep instructions in document flow instead of covering editing controls. */
+.canvas-section,.panel,.room-controls { min-width:0; min-height:0; }
+.canvas-top,.canvas-footer,.focus-toggle,.tile-hint,.creation-journey { flex-shrink:0; }
+.canvas-top span { min-width:0; text-align:center; overflow-wrap:anywhere; letter-spacing:0; }
+.canvas-top button { flex-shrink:0; }
+.canvas-footer { flex-wrap:wrap; gap:4px 12px; padding-block:6px; line-height:1.5; }
+.panel button,.room-controls button,.panel label,.room-controls label { overflow-wrap:anywhere; line-height:1.5; }
+.panel button svg { flex-shrink:0; }
+.panel select,.room-controls select { width:100%;min-width:0;max-width:100%; }
+.room-controls { scrollbar-gutter:stable; }
+.room-controls label { align-self:start; }
+.creation-journey { position:static;transform:none;align-self:center;margin:4px 0;box-shadow:none;width:100%; }
+.tile-hint { display:flex;align-items:center;gap:12px;padding:8px 12px;margin:0 0 6px;border:1px solid #ddc493;border-radius:10px;background:#fff8e8;color:#384c3d;font-size:14px;line-height:1.5; }
+.tile-hint span { flex:1;min-width:0;overflow-wrap:anywhere; }
+.tile-hint button { flex-shrink:0; }
+.tile-point-halo { animation:tile-point-glow 1.6s ease-in-out infinite; }
+@keyframes tile-point-glow { 50% { opacity:.35; } }
+@media(prefers-reduced-motion:reduce){.tile-point-halo{animation:none}}
+.sample { min-width:0;align-items:center; }
+.sample span { min-width:0;overflow-wrap:anywhere;word-break:keep-all;line-height:1.5; }
+.sample small { display:block;line-height:1.6;margin-top:5px; }
+.sample svg { flex-shrink:0; }
+@media(max-width:600px){
+ .room-controls { grid-template-columns:minmax(0,1fr);align-content:start; }
+ .room-controls label { margin:6px 0; }
+ .room-controls select { font-size:14px; }
+ .tile-hint { font-size:14px;padding:7px 10px;gap:6px; }
+ .canvas-top { padding-block:4px; }
+ .canvas-section { flex-shrink:0; }
+ .sample { flex-direction:column;align-items:flex-start;text-align:left; }
+ .sample svg { width:52px;height:52px; }
+}
+@media(min-width:601px) and (max-width:1100px){
+ .workspace.style-open { grid-template-columns:minmax(0,1fr) 260px; }
+ .style-open .left-panel { display:none; }
+ .style-open .canvas-section { grid-column:1;grid-row:1; }
+ .style-open .right-panel.mobile-open { position:static;grid-column:2;grid-row:1;width:auto;padding-top:22px;box-shadow:none; }
+ .focus-edit .workspace.style-open { grid-template-columns:minmax(0,1fr); }
+}

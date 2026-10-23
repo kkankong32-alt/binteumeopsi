@@ -127,6 +127,9 @@ function App() {
     [hint, setHint] = useState(0),
     [puzzleResult, setPuzzleResult] = useState<any>(null),
     [guide, setGuide] = useState(-1),
+    [tileHint, setTileHint] = useState(() => {
+      try { return localStorage.getItem("binteumeopsi-tile-hint-v1") !== "done"; } catch { return true; }
+    }),
     [dirty, setDirty] = useState(false),
     [hasSession, setHasSession] = useState(false),
     [multiSelect, setMultiSelect] = useState(false),
@@ -531,6 +534,10 @@ function App() {
   const activeDecoration = p.decorations.find(
     (d) => d.id === selectedDecoration,
   );
+  function finishTileHint() {
+    setTileHint(false);
+    try { localStorage.setItem("binteumeopsi-tile-hint-v1", "done"); } catch { /* Optional preference. */ }
+  }
   function nudgeVertex(i: number, dx: number, dy: number) {
     const q = clone(p);
     if (q.locked && q.kind !== "escher") {
@@ -566,6 +573,7 @@ function App() {
       return;
     }
     commit(q);
+    if (q.kind === "escher") finishTileHint();
   }
 
   function choose(key: string) {
@@ -584,6 +592,9 @@ function App() {
     setSelected([]);
   }
   function startEscher() {
+    setTool("edit");
+    setFocusCamera(null);
+    setSelectedDecoration(null);
     edit((q) => {
       q.kind = "escher";
       q.mode = "studio";
@@ -940,6 +951,7 @@ function App() {
     }
     const d = drag.current;
     if (!d) return;
+    if (d.kind === "escher" && JSON.stringify(d.before.escher) !== JSON.stringify(ref.current.escher)) finishTileHint();
     if (guide === 0 && (d.kind === "vertex" || d.kind === "escher"))
       setGuide(1);
     let q = clone(ref.current);
@@ -1405,7 +1417,7 @@ function App() {
             });
           }}
         >
-          <option value="">3~12개의 변 중 고르기</option>
+          <option value="">변의 수 고르기</option>
           {Array.from({ length: 10 }, (_, i) => i + 3).map((n) => (
             <option key={n} value={n}>
               {n}개의 변 · 정{n}각형
@@ -1423,7 +1435,7 @@ function App() {
       </label>
       <button className="wide soft" onClick={startEscher}>
         <Layers size={18} />
-        에셔 변 연결 만들기
+        맞물리는 타일 만들기
         <ChevronRight size={17} />
       </button>
       {p.kind === "escher" && (
@@ -2005,14 +2017,17 @@ function App() {
               </button>
             ))}
             <button className="sample" onClick={startEscher}>
-              <svg viewBox="0 0 130 130">
+              <svg viewBox={(() => {
+                const box = bounds(escher(p.escher.top, p.escher.left));
+                return `${box.x - 16} ${box.y - 16} ${box.w + 32} ${box.h + 32}`;
+              })()} aria-hidden="true">
                 <path
                   d={path(escher(p.escher.top, p.escher.left))}
                   fill="#c58d65"
                 />
               </svg>
               <span>
-                나만의 새<small>에셔 변 연결 ↗</small>
+                나만의 맞물림 타일<small>타일의 변을 움직여도 빈틈없이 이어져요!</small>
               </span>
             </button>
           </section>
@@ -2071,6 +2086,7 @@ function App() {
             <main
               className={
                 "workspace " +
+                ((tab === "style" || tab === "math") && right && mode === "studio" ? "style-open " : "") +
                 (mode === "puzzle" ? "quest-workspace " : "") +
                 (!left ? "left-closed " : "") +
                 (!right ? "right-closed" : "")
@@ -2263,7 +2279,7 @@ function App() {
                     {mode === "puzzle"
                       ? `${p.puzzle.level + 1} / 18 — ${puzzle.name}`
                       : p.kind === "escher"
-                        ? "대응하는 두 변 · 평행이동 타일"
+                        ? "맞물리는 타일 · 흰 점으로 모양 바꾸기"
                         : "MY PATTERN / 16:9 ARTBOARD"}
                   </span>
                   <button
@@ -2280,6 +2296,68 @@ function App() {
                     <PanelRightClose size={17} />
                   </button>
                 </div>
+                  {guide >= 0 && (
+                    <div
+                      className="creation-journey"
+                      aria-label="첫 패턴 만들기"
+                    >
+                      <span>한 조각에서 나만의 공간까지</span>
+                      <button
+                        className={guide === 0 ? "active" : ""}
+                        onClick={() => {
+                          setTool("edit");
+                          if (innerWidth < 600 && !focusCamera) toggleFocus();
+                          setGuide(0);
+                        }}
+                      >
+                        1 점 움직이기
+                      </button>
+                      <button
+                        className={guide === 1 ? "active" : ""}
+                        onClick={() => {
+                          if (!p.repeat) togglePieces();
+                          setFocusCamera(null);
+                          setGuide(2);
+                        }}
+                      >
+                        2 패턴 펼치기
+                      </button>
+                      <button
+                        className={guide === 2 ? "active" : ""}
+                        onClick={() => {
+                          setTab("style");
+                          setRight(true);
+                          setGuide(3);
+                        }}
+                      >
+                        3 색과 무늬
+                      </button>
+                      <button
+                        onClick={() => {
+                          changeMode("showroom");
+                          setGuide(-1);
+                          localStorage.setItem("binteumeopsi-guide", "1");
+                        }}
+                      >
+                        4 공간에 적용
+                      </button>
+                      <button
+                        title="첫 패턴 안내 닫기"
+                        onClick={() => {
+                          setGuide(-1);
+                          localStorage.setItem("binteumeopsi-guide", "1");
+                        }}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  )}
+                {mode === "studio" && p.kind === "escher" && tileHint && tool === "edit" && (
+                  <div className="tile-hint" role="status">
+                    <span><strong>이 점을 움직여 보세요!</strong><br />테두리가 빛나는 흰 점을 끌면 반대쪽 변도 함께 움직여요.</span>
+                    <button onClick={finishTileHint} aria-label="타일 조작 안내 닫기">확인</button>
+                  </div>
+                )}
                 <div className="canvas-shell">
                   <svg
                     ref={svg}
@@ -2439,6 +2517,9 @@ function App() {
                                 : base
                               ).map((v, i) => (
                                 <g key={i}>
+                                  {p.kind === "escher" && tileHint && i === 0 && (
+                                    <circle className="tile-point-halo" cx={v[0]} cy={v[1]} r={13 * handleUnit} fill="none" stroke="#d5792d" strokeWidth={3 * handleUnit} pointerEvents="none" aria-hidden="true" />
+                                  )}
                                   <circle
                                     tabIndex={0}
                                     role="button"
@@ -2592,62 +2673,7 @@ function App() {
                       </button>
                     </div>
                   )}
-                  {guide >= 0 && (
-                    <div
-                      className="creation-journey"
-                      aria-label="첫 패턴 만들기"
-                    >
-                      <span>한 조각에서 나만의 공간까지</span>
-                      <button
-                        className={guide === 0 ? "active" : ""}
-                        onClick={() => {
-                          setTool("edit");
-                          if (innerWidth < 600 && !focusCamera) toggleFocus();
-                          setGuide(0);
-                        }}
-                      >
-                        1 점 움직이기
-                      </button>
-                      <button
-                        className={guide === 1 ? "active" : ""}
-                        onClick={() => {
-                          if (!p.repeat) togglePieces();
-                          setFocusCamera(null);
-                          setGuide(2);
-                        }}
-                      >
-                        2 패턴 펼치기
-                      </button>
-                      <button
-                        className={guide === 2 ? "active" : ""}
-                        onClick={() => {
-                          setTab("style");
-                          setRight(true);
-                          setGuide(3);
-                        }}
-                      >
-                        3 색과 무늬
-                      </button>
-                      <button
-                        onClick={() => {
-                          changeMode("showroom");
-                          setGuide(-1);
-                          localStorage.setItem("binteumeopsi-guide", "1");
-                        }}
-                      >
-                        4 공간에 적용
-                      </button>
-                      <button
-                        title="첫 패턴 안내 닫기"
-                        onClick={() => {
-                          setGuide(-1);
-                          localStorage.setItem("binteumeopsi-guide", "1");
-                        }}
-                      >
-                        ×
-                      </button>
-                    </div>
-                  )}
+
                 </div>
                 {mode === "studio" && (
                   <button className="focus-toggle" onClick={toggleFocus}>

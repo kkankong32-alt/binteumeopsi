@@ -27,7 +27,6 @@ jobs:
       - run: npm run build
         env:
           VITE_INCLUDE_MANUAL: 'false'
-          VITE_ANALYTICS_HOSTS: kkankong32-alt.github.io
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

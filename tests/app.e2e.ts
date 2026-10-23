@@ -164,7 +164,7 @@ test("exports, project roundtrip, malformed input, autosave", async ({
 test("escher, learning cards, puzzle drag solution", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await setup(page);
-  await page.getByRole("button", { name: "에셔 변 연결 만들기" }).click();
+  await page.getByRole("button", { name: "맞물리는 타일 만들기" }).click();
   await expect(page.locator(".certified")).toBeVisible();
   const pt = await page.locator(".artboard g circle").first().boundingBox();
   await page.mouse.move(pt!.x + pt!.width / 2, pt!.y + pt!.height / 2);
@@ -689,7 +689,7 @@ test("curved Escher, movable vector decorations and exact restore", async ({
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await setup(page);
-  await page.getByRole("button", { name: "에셔 변 연결 만들기" }).click();
+  await page.getByRole("button", { name: "맞물리는 타일 만들기" }).click();
   await page.getByLabel("자유 아트 · 곡선").check();
   await expect(page.locator(".certified")).toBeVisible();
   await page.getByTitle("눈 장식", { exact: true }).click();

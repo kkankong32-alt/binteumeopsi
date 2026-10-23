@@ -5,8 +5,8 @@ export const exampleDescriptions = [
   "정삼각형 · 미드나이트 블루 · 유광",
   "정육각형 · 은빛 안개 · 브러시드 금속",
   "팔각형과 사각형 · 테라코타 · 석재",
-  "직선 에셔 · 작은 새 · 나무결",
-  "곡선 에셔 · 물빛 정원 · 유리",
+  "직선 맞물림 · 작은 새 · 나무결",
+  "곡선 맞물림 · 물빛 정원 · 유리",
 ];
 export function createExamples(): Project[] {
   return ["quad", "triangle", "hex", "mixed8", "escher", "curve"].map(
