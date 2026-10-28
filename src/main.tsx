@@ -83,6 +83,7 @@ import { createExamples, exampleDescriptions } from "./examples";
 import "./style.css";
 import "./launch.css";
 import { LivePattern } from "./LivePattern";
+import { PageMeasurement } from "./PageMeasurement";
 import { LaunchHero } from "./LaunchHero";
 import { ReleaseFooter, manualURL, manualsAvailable } from "./ReleaseFooter";
 const clone = <T,>(p: T): T => structuredClone(p);
@@ -2995,6 +2996,7 @@ function App() {
         </>
       )}
       <ReleaseFooter mode={mode} />
+      <PageMeasurement mode={mode} />
       {toast && (
         <div className="toast" role="status">
           {toast}
